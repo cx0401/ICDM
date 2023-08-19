@@ -1,5 +1,11 @@
-document.getElementById("challengeBtn").addEventListener("click", function() {
-    window.location.href = "extract.html";
+document.getElementById("openModalBtn").addEventListener("click", function() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "block";
+  });
+  
+  document.querySelector(".close").addEventListener("click", function() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
   });
   
   document.getElementById("extractBtn").addEventListener("click", function() {

@@ -9,7 +9,17 @@
 <body>
   <div class="container">
     <h1>简历/JD信息抽取</h1>
-    <button id="challengeBtn">挑战</button>
+    <button id="openModalBtn">打开弹出框</button>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <textarea id="jdInput" placeholder="在这里输入JD内容..."></textarea>
+      <button id="extractBtn">提取技能</button>
+      <div id="output"></div>
+      <div id="log"></div>
+    </div>
   </div>
 
   <script src="script.js"></script>

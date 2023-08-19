@@ -1,36 +1,34 @@
-document.getElementById("openModalBtn").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function() {
+    const extractButton = document.getElementById("extractButton");
     const modal = document.getElementById("myModal");
-    modal.style.display = "block";
-  });
-  
-  document.querySelector(".close").addEventListener("click", function() {
-    const modal = document.getElementById("myModal");
-    modal.style.display = "none";
-  });
-  
-  document.getElementById("extractBtn").addEventListener("click", function() {
-    const jdInput = document.getElementById("jdInput").value;
-    const extractedSkills = extractSkills(jdInput);
-  
-    displaySkills(extractedSkills);
-  });
-  
-  function extractSkills(jdContent) {
-    // 在这里编写实际的信息抽取逻辑，提取技能
-    // 这部分可能涉及到文本处理、关键词提取等技术
-  
-    // 示例：假设技能是用逗号分隔的
-    return jdContent.split(",");
-  }
-  
-  function displaySkills(skills) {
-    const outputDiv = document.getElementById("output");
-    const skillsList = skills.map(skill => `<div>${skill}</div>`).join("");
-    outputDiv.innerHTML = skillsList;
-  
-    // 在日志中记录操作
-    const logDiv = document.getElementById("log");
-    const logMessage = `技能提取完成：${skills.length} 项技能提取成功。`;
-    logDiv.innerHTML = logMessage;
-  }
-  
+    const closeModal = document.getElementById("closeModal");
+    const startExtraction = document.getElementById("startExtraction");
+    const inputText = document.getElementById("inputText");
+    const outputText = document.getElementById("outputText");
+    const logArea = document.getElementById("logArea");
+
+    extractButton.addEventListener("click", function() {
+        modal.style.display = "block";
+    });
+
+    closeModal.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    startExtraction.addEventListener("click", function() {
+        const input = inputText.value;
+        // Perform extraction logic and update outputText and logArea accordingly
+        // For example:
+        const extractedSkills = extractSkills(input);
+        outputText.value = extractedSkills.join(", ");
+        logArea.innerHTML = "Extraction completed.";
+    });
+
+    function extractSkills(text) {
+        // Placeholder function for skill extraction logic
+        // You would need to implement your own skill extraction algorithm
+        // This is just a simple example
+        const skills = text.match(/\b\w+\b/g);
+        return skills || [];
+    }
+});
